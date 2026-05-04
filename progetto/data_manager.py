@@ -1,5 +1,3 @@
-import os
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 from ucimlrepo import fetch_ucirepo
 import pandas as pd

@@ -1,5 +1,3 @@
-import os
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 from progetto.data_manager import DataManager
 from progetto.deep_learning import DeepLearningModel
