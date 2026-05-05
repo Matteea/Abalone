@@ -27,6 +27,8 @@ def main():
     #allenamento e risultati dei modelli
     ml_models.train_linear_regression()
     ml_models.train_xgboost()
+    ml_models.train_ridge_regression()
+    ml_models.train_lasso_regression()
 
     #inizializzazione della classe per il deep learning
     dl_model = DeepLearningModel(

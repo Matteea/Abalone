@@ -4,7 +4,8 @@ import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
-
+from sklearn.linear_model import Lasso
+from sklearn.linear_model import Ridge
 from xgboost import XGBRegressor
 
 class MachineLearningModels:
@@ -69,4 +70,36 @@ class MachineLearningModels:
         y_pred = model.predict(self.X_test)
 
         self.evaluate_model("XGBoost", y_pred)
+        self.print_feature_names(model)
+
+    #training lasso
+    def train_lasso_regression(self):
+        model = Pipeline(
+            steps=[
+                ("preprocessor", self.preprocessor),
+                ("regressor", Lasso(alpha=0.1))
+            ]
+        )
+
+        model.fit(self.X_train, self.y_train)
+
+        y_pred = model.predict(self.X_test)
+
+        self.evaluate_model("Lasso Regression", y_pred)
+        self.print_feature_names(model)
+
+    #training ridge
+    def train_ridge_regression(self):
+        model = Pipeline(
+            steps=[
+                ("preprocessor", self.preprocessor),
+                ("regressor", Ridge(alpha=1.0))
+            ]
+        )
+
+        model.fit(self.X_train, self.y_train)
+
+        y_pred = model.predict(self.X_test)
+
+        self.evaluate_model("Ridge Regression", y_pred)
         self.print_feature_names(model)
