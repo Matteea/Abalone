@@ -16,6 +16,7 @@ class MachineLearningModels:
         self.y_train = y_train
         self.y_test = y_test
 
+    #valutazione delle metriche del modello
     def evaluate_model(self, model_name, y_pred):
         mae = metrics.mean_absolute_error(self.y_test, y_pred)
         mse = metrics.mean_squared_error(self.y_test, y_pred)
@@ -28,12 +29,14 @@ class MachineLearningModels:
         print("RMSE:", rmse)
         print("R2:", r2)
 
+    #stampa delle features utilizzate dal modello
     def print_feature_names(self, model):
         feature_names = model.named_steps["preprocessor"].get_feature_names_out()
 
         print("\nFeature usate dal modello:")
         print(feature_names)
 
+    #training della linear regression
     def train_linear_regression(self):
         model = Pipeline(
             steps=[
@@ -49,6 +52,7 @@ class MachineLearningModels:
         self.evaluate_model("Linear Regression", y_pred)
         self.print_feature_names(model)
 
+    #training del xgboost
     def train_xgboost(self):
         model = Pipeline(
             steps=[

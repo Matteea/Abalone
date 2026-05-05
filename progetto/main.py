@@ -7,12 +7,15 @@ import pandas as pd
 
 
 def main():
+    #cambio impostazioni di visualizzazione di pandas
     pd.set_option("display.max_columns", None)
     pd.set_option("display.width", None)
 
+    #inizializzazione della classe per la gestione dei dati
     data_manager = DataManager()
     data_manager.prepare_data()
 
+    #inizializzazione della classe dei modelli di machine learning
     ml_models = MachineLearningModels(
         preprocessor=data_manager.preprocessor,
         X_train=data_manager.X_train,
@@ -21,9 +24,11 @@ def main():
         y_test=data_manager.y_test
     )
 
+    #allenamento e risultati dei modelli
     ml_models.train_linear_regression()
     ml_models.train_xgboost()
 
+    #inizializzazione della classe per il deep learning
     dl_model = DeepLearningModel(
         preprocessor=data_manager.preprocessor,
         X_train=data_manager.X_train,
@@ -32,6 +37,7 @@ def main():
         y_test=data_manager.y_test
     )
 
+    #allenamento e risultati del modello di deep learning
     dl_model.run()
 
 

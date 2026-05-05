@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 
+
 class DataManager:
     def __init__(self, test_size=0.2, random_state=12):
         self.test_size = test_size
@@ -22,6 +23,7 @@ class DataManager:
 
         self.preprocessor = None
 
+    #caricamento del dataset
     def load_data(self):
         abalone = fetch_ucirepo(id=1)
 
@@ -32,6 +34,7 @@ class DataManager:
 
         print("Shape iniziale:", self.df.shape)
 
+    #pulizia del dataset
     def clean_data(self):
         df = self.df.copy()
 
@@ -69,6 +72,7 @@ class DataManager:
 
         print("Shape dopo pulizia:", self.df.shape)
 
+    #ingegnerizzazione delle feature
     def feature_engineering(self):
         df = self.df.copy()
 
@@ -88,6 +92,7 @@ class DataManager:
         print(self.X.head())
         print(self.y.head())
 
+    #preparazione del preprocessor
     def build_preprocessor(self):
         categorical_features = ["Sex"]
         numeric_features = self.X.drop(columns=categorical_features).columns.tolist()
@@ -100,6 +105,7 @@ class DataManager:
             remainder="drop"
         )
 
+    #splitting dei dati
     def split_data(self):
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
             self.X,
@@ -108,6 +114,7 @@ class DataManager:
             random_state=self.random_state
         )
 
+    #preparazione dei dati
     def prepare_data(self):
         self.load_data()
         self.clean_data()
