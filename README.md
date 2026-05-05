@@ -171,7 +171,7 @@ R2:   <valore>    ← proporzione di varianza spiegata [0, 1]
 progetto/
 ├── main.py               # Entry point: orchestrazione dell'intera pipeline
 ├── data_manager.py       # Caricamento, pulizia, feature engineering, split
-├── machine_learning.py   # Linear Regression + XGBoost
+├── machine_learning.py   # Linear Regression + Ridge + Lasso + XGBoost
 └── deep_learning.py      # Rete neurale con Keras/TensorFlow
 ```
 
