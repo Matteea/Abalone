@@ -76,7 +76,25 @@ Modello lineare basato su `sklearn.linear_model.LinearRegression`, inserito in u
 
 ---
 
-### 2. XGBoost (`machine_learning.py`)
+### 2. Ridge Regression (`machine_learning.py`)
+ 
+Regressione lineare con regolarizzazione L2 tramite `sklearn.linear_model.Ridge`.
+ 
+- **Configurazione**: `alpha=1.0` (controlla la forza della regolarizzazione)
+- **Vantaggi**: riduce l'overfitting penalizzando i coefficienti grandi, stabile in presenza di multicollinearità (utile qui dato che le feature peso sono correlate tra loro).
+- **Limitazioni**: non azzera i coefficienti, non effettua feature selection.
+---
+ 
+### 3. Lasso Regression (`machine_learning.py`)
+ 
+Regressione lineare con regolarizzazione L1 tramite `sklearn.linear_model.Lasso`.
+ 
+- **Configurazione**: `alpha=0.1`
+- **Vantaggi**: porta alcuni coefficienti esattamente a zero, producendo un modello sparso con feature selection implicita.
+- **Limitazioni**: può essere instabile con feature altamente correlate; richiede tuning accurato di `alpha`.
+---
+
+### 4. XGBoost (`machine_learning.py`)
 
 Gradient boosting su alberi decisionali con `XGBRegressor`.
 
@@ -88,7 +106,7 @@ Gradient boosting su alberi decisionali con `XGBRegressor`.
 
 ---
 
-### 3. Deep Learning Neural Network (`deep_learning.py`)
+### 5. Deep Learning Neural Network (`deep_learning.py`)
 
 Rete neurale feedforward costruita con `tensorflow.keras`.
 
