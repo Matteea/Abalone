@@ -122,6 +122,16 @@ RMSE: <valore>    ← deviazione tipica degli errori in anni
 R2:   <valore>    ← proporzione di varianza spiegata [0, 1]
 ```
 
+### Risultati Comparativi
+ 
+| Modello | MAE ⬇️ | MSE ⬇️ | RMSE ⬇️ | R² ⬆️ |
+|---------|--------|--------|---------|-------|
+| Linear Regression | 1.4641 | 4.0410 | 2.0102 | 0.5772 |
+| XGBoost | 1.6247 | 4.8185 | 2.1951 | 0.4959 |
+| Deep Learning (NN) | 1.4212 | 4.0747 | 2.0185 | 0.5737 |
+ 
+---
+
 ### Guida alla comparazione
 
 | Metrica | Modello migliore |
